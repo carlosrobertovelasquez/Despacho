@@ -8,13 +8,13 @@
 
  <div class="container spark-screen">
         <div class="row">
-            <div class="col-md-16 col-md-offset-1">
+            <div class="col-md-16 ">
                 <div class="panel panel-default">
                     <div class="panel-heading"> <a href="{{ route('vehiculos.create') }}" class="btn btn-info">Registar Nuevo Vehiculo</a>
                     @include('flash::message')
-                    </div>
+                 </div>
                    
-                    <div class="panel-body">
+                <div class="panel-body">
 
 			 <table class="table table-striped">
  					<thead>
@@ -25,9 +25,7 @@
 				 		<th>KFinal</th>
 				 		<th>Año</th>
 				 		<th>Propio</th>
-				 		<th>Combustible</th>
-				 		<th>Usuario Creacion</th>
-				 		<th>Fecha Creacion</th>
+				 		<th>Comb.</th>
 				 		<th>Accion</th>
 				 	</thead>
 				 	<tbody>
@@ -41,20 +39,22 @@
 				 			<td>{{ $vehi->ano }}</td>
 				 			<td>{{ $vehi->propio }}</td>
 				 			<td>{{ $vehi->combustible }}</td>
-				 			<td>{{ $vehi->create_user }}</td>
-				 			<td>{{ $vehi->created_at }}</td>
-				 			<td><a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a></td>
+				 			<td>
+							 <a href="{{route('vehiculos.edit',$vehi->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+							 <a href="{{route('vehiculos.destroy',$vehi->id)}}" 
+							         onclick="return confirm('Seguro que desea Eliminar')" 
+									 class="btn btn-warning"> 
+									 <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+						      </a>
+							</td>
 
 				 		</tr>
 				 		@endforeach
 				 	</tbody>
 			</table>
+            <div class="text-center">
 			{!! $vehiculos->render() !!}
- 					</div>
- 				</div>
- 			</div>
- 		</div>
- 	</div>
-
+			</div>	 
+	
 
 @endsection

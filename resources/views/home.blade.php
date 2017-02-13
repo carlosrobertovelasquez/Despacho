@@ -8,15 +8,7 @@
 
  
      
-      <!-- Left side column. contains the logo and sidebar -->
-      
-
-      <!-- Content Wrapper. Contains page content -->
      
-        <!-- Content Header (Page header) -->
-        
-
-        <!-- Main content -->
         <section class="content">
           <div class="row">
             <div class="col-md-6">

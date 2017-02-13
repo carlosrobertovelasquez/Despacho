@@ -41,7 +41,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ url('vehiculos') }}">Motoristas</a></li>
                     <li><a href="#">Preparadores</a></li>
-                    <li><a href="#">Vehiculos</a></li>
+                    <li><a href="{{ route('vehiculos.index') }}">Vehiculos</a></li>
              
                 </ul>
             </li>
