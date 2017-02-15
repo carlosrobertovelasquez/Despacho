@@ -7,9 +7,23 @@
 
 
 @section('main-content')
+     
+
+     @if(count($errors)>0)
+       <div class="alert alert-danger" role="alert"> 
+       <ul>
+       @foreach($errors->all() as $error)
+         <li>{{$error}}</li>
+       @endforeach
+       </ul>
+       </div>   
+    @endif
+     
+
+
     <div class="container spark-screen">
         <div class="row">
-            <div class="col-md-16 col-md-offset-1">
+            <div class="col-md-6 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Crear Vehiculos</div>
                     <div class="panel-body">
@@ -49,7 +63,7 @@
 
                     <div class="form-group">
                      {!! Form::label('propio','Propio') !!} 
-                     {!! Form::text('propio',null,['class'=>'form-control','placeholder'=>'Propio Requerido','required']) !!}   
+                     {!! Form::select('propio',[''=>'Seleciones ','P'=>'Propio','A'=>'Alquilado','T'=>'Tercero',],null,['class'=>'form-control']) !!}
                     </div>
                     
                     <div class="form-group">

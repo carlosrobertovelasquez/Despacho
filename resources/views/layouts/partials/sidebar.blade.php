@@ -39,8 +39,8 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Maestros</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('vehiculos') }}">Motoristas</a></li>
-                    <li><a href="#">Preparadores</a></li>
+                    <li><a href="{{ route('motoristas.index') }}">Motoristas</a></li>
+                    <li><a href="{{ route('ayudantes.index') }}">Preparadores</a></li>
                     <li><a href="{{ route('vehiculos.index') }}">Vehiculos</a></li>
              
                 </ul>
@@ -49,8 +49,9 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Transacciones</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Ticket Preparacion</a></li>
-                    <li><a href="#">Flete Despacho</a></li>
+                    <li><a href="{{ route('preparos.index') }}">Ticket Preparacion</a></li>
+                    <li><a href="{{ route('fletes.index') }}">Flete Despacho</a></li>
+                    <li><a href="{{ route('liquidaciones.index') }}">Liquidacion</a></li>
                 </ul>
             </li> 
             

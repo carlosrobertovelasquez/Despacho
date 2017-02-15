@@ -18,16 +18,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('test', 'TestController@index');
+
 
 Route:: group(['prefix'=> 'maestros'], function() {
-
     Route::resource('vehiculos', 'VehiculoController');
     Route::get('vehiculos/{id}/destroy',[
             'uses'=> 'VehiculoController@destroy',
             'as'=> 'vehiculos.destroy'
-    ]);
+       ]);
+    Route::resource('ayudantes', 'AyudanteController');
+    Route::resource('motoristas', 'MotoristaController');   
+});
 
+Route:: group(['prefix'=> 'transacciones'], function() {
+    Route::resource('preparos', 'PreparoController');
+    Route::resource('fletes', 'FleteController');
+    Route::resource('liquidaciones', 'LiquidacionController');   
 });
 
   

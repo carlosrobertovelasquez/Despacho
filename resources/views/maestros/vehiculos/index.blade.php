@@ -8,15 +8,15 @@
 
  <div class="container spark-screen">
         <div class="row">
-            <div class="col-md-16 ">
+            <div class="col-md-11 ">
                 <div class="panel panel-default">
                     <div class="panel-heading"> <a href="{{ route('vehiculos.create') }}" class="btn btn-info">Registar Nuevo Vehiculo</a>
                     @include('flash::message')
                  </div>
                    
-                <div class="panel-body">
+                <div class="table table-striped">
 
-			 <table class="table table-striped">
+			 <table class="table table table-striped">
  					<thead>
  						<th>Placa</th>
  						<th>Modelo</th>

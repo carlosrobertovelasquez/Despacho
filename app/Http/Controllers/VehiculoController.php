@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Vehiculo;
 use Laracasts\Flash\Flash;
-Use nesbot\Carbon;
+Use Carbon\Carbon;
+Use App\Http\Requests\VehiculoRequest;
 
 class VehiculoController extends Controller
 {
@@ -14,7 +15,17 @@ class VehiculoController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+      */
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
+
     public function index()
     {
         $vehiculos=vehiculo::orderby('id','ASC')->paginate(8);
@@ -37,15 +48,13 @@ class VehiculoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VehiculoRequest $request)
     {
        // revisar los requess
-        $fecha=Carbor::now();    
+        $fecha=Carbon::now();    
         $vehiculo=new vehiculo($request->all());
         $vehiculo->create_User='SA';
-        $vehiculo->update_user='SA';
-        $vehiculo->created_at=$fecha;
-        $vehiculo->updated_at=$fecha;
+        $vehiculo->update_user='SA';      
         $vehiculo->save(); 
         
         Flash::success('Se ha registrado La Placa de Forma Existosa')->important();
@@ -100,6 +109,8 @@ class VehiculoController extends Controller
         $vehiculo->propio=$request->propio;
         $vehiculo->combustible=$request->combustible;
         $vehiculo->save();
+          Flash::success('Se Actualizado Con Exito')->important();
+        return redirect()->route('vehiculos.index');
     }
 
     /**

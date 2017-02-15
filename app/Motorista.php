@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Motorista extends Model
 {
-    protected $table = 'Motorista';
-        //public $timestamps = false;
+    protected $fillable =['dui','nombre','licencia','tipo_lic','estado'] ;
+            public $timestamps = false;
 }
