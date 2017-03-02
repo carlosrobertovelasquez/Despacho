@@ -49,6 +49,7 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Transacciones</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
+                    <li><a href="{{ route('pedidos.index') }}">Pedidos</a></li>
                     <li><a href="{{ route('preparos.index') }}">Ticket Preparacion</a></li>
                     <li><a href="{{ route('fletes.index') }}">Flete Despacho</a></li>
                     <li><a href="{{ route('liquidaciones.index') }}">Liquidacion</a></li>

@@ -1,36 +1,35 @@
 <?php
 
+namespace App\Http\Controllers\Transacciones;
 
-namespace App\Http\Controllers;
+
+
 
 use App\Http\Controllers\Controllers;
 use Illuminate\Http\Request;
-use App\Modelos\TCargaPedido;
+use App\User;
 use App\Modelos\Ticket;
-use App\Modelos\Ticket_detalle_pedido;
 use Laracasts\Flash\Flash;
-use Illuminate\Support\Facades\DB;
-   
+Use Carbon\Carbon;
+Use App\Http\Requests\VehiculoRequest;
 
-
-
-class PreparoController extends Controller
+class TicketController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
+      public function __construct()
+                {
+                    $this->middleware('auth');
+                }  
 
-
-     public function __construct()
-        {
-            $this->middleware('auth');
-        }
     public function index()
     {
-     
-
-        $ticket=Ticket ::orderby('ticket','ASC')->whereNull('fecha_inicio_preparacion')->get() ;
-        $ticket_d_p=Ticket_detalle_pedido ::orderby('id_ticket','ASC')->get() ;
-        return view('preparos.index')->with('ticket',$ticket)->with('ticket_d_p',$ticket_d_p);
-        
+           $ticket=ticket::orderby('id','ASC')->paginate(8);
+    return view('maestros.ayudantes.index')-> with('ticket',$ticket);
     }
 
     /**
@@ -62,9 +61,7 @@ class PreparoController extends Controller
      */
     public function show($id)
     {
-
-
-      
+        //
     }
 
     /**

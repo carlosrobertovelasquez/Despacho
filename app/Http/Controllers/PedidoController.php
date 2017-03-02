@@ -1,36 +1,35 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controllers;
 use Illuminate\Http\Request;
 use App\Modelos\TCargaPedido;
-use App\Modelos\Ticket;
-use App\Modelos\Ticket_detalle_pedido;
+use App\Modelos\Pedido;
+use App\Modelos\Pedido_linea;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\DB;
-   
 
 
-
-class PreparoController extends Controller
+class PedidoController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
-
-
-     public function __construct()
+    public function __construct()
         {
             $this->middleware('auth');
         }
     public function index()
-    {
-     
 
-        $ticket=Ticket ::orderby('ticket','ASC')->whereNull('fecha_inicio_preparacion')->get() ;
-        $ticket_d_p=Ticket_detalle_pedido ::orderby('id_ticket','ASC')->get() ;
-        return view('preparos.index')->with('ticket',$ticket)->with('ticket_d_p',$ticket_d_p);
-        
+
+    {
+             $pedidos=TCargaPedido ::orderby('pedidos','ASC')->whereNull('num_ticket') ->paginate(8);
+
+        return view('transacciones.pedidos.index')->with('pedidos',$pedidos) ;
+
     }
 
     /**
@@ -60,11 +59,22 @@ class PreparoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( $id)
+
     {
-
-
+     
       
+            $pedidosSoft=DB::Connection('softland')->select("select * from DRO_UNI.PEDIDO WHERE PEDIDO='$id'");
+           
+           $pedidosSoftLinea=DB::Connection('softland')->select(
+            "select pedl.PEDIDO_LINEA,pedl.BODEGA,pedl.LOTE,pedl.ARTICULO,art.DESCRIPCION, pedl.estado,pedl.CANTIDAD_PEDIDA,pedl.CANTIDAD_A_FACTURA,pedl.CANTIDAD_BONIFICAD from
+            DRO_UNI.PEDIDO_LINEA pedl,
+            DRO_UNI.ARTICULO art
+            where PEDIDO='$id' and
+            art.ARTICULO=pedl.ARTICULO") ;
+   
+           return view ('transacciones.pedidos.show')->with('ped',$pedidosSoft)->with('pedlinea',$pedidosSoftLinea) ;
+
     }
 
     /**
@@ -73,7 +83,7 @@ class PreparoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($pedido,$conse,$articulo)
     {
         //
     }

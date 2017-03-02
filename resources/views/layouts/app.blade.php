@@ -58,6 +58,7 @@ desired effect
 @section('scripts')
     @include('layouts.partials.scripts')
 @show
+ @yield('bottom')
 
 </body>
 </html>

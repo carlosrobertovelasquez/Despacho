@@ -2,7 +2,17 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controllers;
 use Illuminate\Http\Request;
+use App\User;
+use App\Ayudante;
+use Laracasts\Flash\Flash;
+Use Carbon\Carbon;
+Use App\Http\Requests\VehiculoRequest;
+
+
+
 
 class AyudanteController extends Controller
 {
@@ -25,8 +35,8 @@ class AyudanteController extends Controller
     
       *  return view('maestros.vehiculos.index')->with('vehiculos',$vehiculos);
     */ 
-
-    return view('maestros.ayudantes.index');
+     $preparadores=ayudante::orderby('id','ASC')->paginate(8);
+    return view('maestros.ayudantes.index')-> with('preparadores',$preparadores);
     }
 
     /**
@@ -36,7 +46,7 @@ class AyudanteController extends Controller
      */
     public function create()
     {
-        //
+         return view('maestros.ayudantes.create');
     }
 
     /**
@@ -48,6 +58,14 @@ class AyudanteController extends Controller
     public function store(Request $request)
     {
         //
+
+
+         $fecha=Carbon::now();    
+        $ayudantes=new Ayudante($request->all());
+        $ayudantes->save(); 
+        
+        Flash::success('Se ha registrado El Preparador de Forma Existosa')->important();
+        return redirect()->route('ayudantes.index');
     }
 
     /**
@@ -58,8 +76,16 @@ class AyudanteController extends Controller
      */
     public function show($id)
     {
-        //
+       
+       /*
+        $preparadores=new ayudante($request->all());    
+             
+        $preparadores->save(); 
         
+        Flash::success('Se ha registrado Preparador de Forma Existosa')->important();
+        return redirect()->route('ayudantes.index');
+       */ 
+           return redirect()->route('ayudantes.index');
     }
 
     /**
@@ -70,7 +96,8 @@ class AyudanteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $preparadores=ayudante::find($id);
+        return view('maestros.ayudantes.edit')->with('preparadores',$preparadores);
     }
 
     /**
@@ -93,6 +120,10 @@ class AyudanteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('aqui estamos');
+     $preparadores=ayudantes::find($id);
+        $preparadores->delete();
+        flash::error('El Vehiculo se Borro sin problema')->important();
+        return redirect()->route('ayudantes.index');
     }
 }
