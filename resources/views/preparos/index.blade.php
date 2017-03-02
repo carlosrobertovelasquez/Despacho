@@ -14,25 +14,35 @@
 
 
 <h1> Listado de Ticketsdd<h/>
-     
+
+
+
+    <div class="panel panel-info">
+        @foreach ($ticket as $ticket)
+            <div class="panel-heading">
+                <h3 class="panel-title"><a> Ticket # </a>{{$ticket->ticket}}-<a> Preparador > </a>{{$ticket->preparador}}</h3>
+            </div>
+            <div class="panel-body">
+
+           
+
+            </div>
 
 
 
 
-<div class="panel panel-info">
-@foreach ($ticket as $ticket)
-  <div class="panel-heading">
-  <h3 class="panel-title"><a> Ticket # </a>{{$ticket->ticket}}-<a> Preparador > </a>{{$ticket->preparador}}
-  <a> Fecha Creacion > </a>{{$ticket->fecha_inicio}}</h3>
-  
-  </div>
-  <div class="panel-body">
-         @while($ticket_d_p->ticket=$ticket->ticket)
-         <p>aqui</p>
-         @endwhile
-  </div>
-@endforeach  
-</div>
+
+
+
+        @endforeach
+
+
+
+
+
+    </div>
+
+
 
 
 

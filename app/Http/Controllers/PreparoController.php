@@ -28,8 +28,8 @@ class PreparoController extends Controller
      
 
         $ticket=Ticket ::orderby('ticket','ASC')->whereNull('fecha_inicio_preparacion')->get() ;
-        $ticket_d_p=Ticket_detalle_pedido ::orderby('id_ticket','ASC')->get() ;
-        return view('preparos.index')->with('ticket',$ticket)->with('ticket_d_p',$ticket_d_p);
+        $ticket_d_p=Ticket_detalle_pedido ::all() ;
+                return view('preparos.index')->with('ticket',$ticket)->with('ticket_d_p',$ticket_d_p);
         
     }
 
