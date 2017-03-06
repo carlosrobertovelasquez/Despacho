@@ -23,14 +23,15 @@
 
 </head>
 <body>
+@foreach($EncabezadoTicket as $EncabezadoTicket)
 <h4  style="margin: 0px 0px 0px 0px"  align="center" >   DROGUERIA UNIVERSAL S.A. de C.V.  </h4>
-<p style="margin:1% 0;" class="panel-title" align="center" > Numero de Ticket :</p>
-<p style="margin:1% 0;" class="panel-title" align="center" > Preparador :</p>
-<p style="margin:-2.5% 0;"  align="left">Cliente :</p>
-<p  style="margin:1% 0;" align="left">Nombre :</p>
-<p  style="margin:1% 0;" align="left">Direcion :</p>
-<p  style="margin:2% 0;" align="left">Notas :</p>
-
+<p style="margin:1% 0;" class="panel-title" align="center" > Numero de Ticket : {{$EncabezadoTicket->ticket}}  </p>
+<p style="margin:1% 0;" class="panel-title" align="center" > Preparador :{{$EncabezadoTicket->preparador}}    Estado :{{$EncabezadoTicket->estado}} </p>
+<p style="margin:-2.5% 0;"  align="left">Cliente:({{$EncabezadoTicket->cliente}})-{{$EncabezadoTicket->nombre}}  </p>
+<p  style="margin:1% 0;" align="left">Vendedor :{{$EncabezadoTicket->nombre_vendedor}}</p>
+<p  style="margin:1% 0;" align="left">Direcion :{{$EncabezadoTicket->direccion}}</p>
+<p  style="margin:2% 0;" align="left">Notas : {{$EncabezadoTicket->nota}}</p>
+@endforeach
 <div class="panel-body">
 <table style="margin: 1%" >
 
@@ -40,7 +41,6 @@
     <th>Articulo</th>
     <th>Descripcion</th>
     <th>Cantidad</th>
-    <th>Bonificacion</th>
     <th>Lote</th>
     <th>Vence</th>
     </tr>
@@ -51,8 +51,7 @@
             <td>{{ $pedidosSoftLinea->PEDIDO}}</td>
             <td>{{$pedidosSoftLinea->ARTICULO}}</td>
             <td>{{$pedidosSoftLinea->DESCRIPCION}}</td>
-            <td>{{number_format($pedidosSoftLinea->CANTIDAD_A_FACTURA,2)}}</td>
-            <td>{{number_format($pedidosSoftLinea->CANTIDAD_BONIFICAD,2)}}</td>
+            <td>{{number_format($pedidosSoftLinea->CANTIDAD,2)}}</td>
             <td>{{$pedidosSoftLinea->LOTE}}</td>
             <td>{{ $pedidosSoftLinea->FECHA_VENCIMIENTO}}</td>
         </tr>

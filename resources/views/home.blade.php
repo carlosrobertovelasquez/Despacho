@@ -15,7 +15,7 @@
               <!-- AREA CHART -->
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Area Chart</h3>
+                  <h3 class="box-title">Pedidos</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -31,7 +31,7 @@
               <!-- DONUT CHART -->
               <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Donut Chart</h3>
+                  <h3 class="box-title">Vehiculos</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -47,7 +47,7 @@
               <!-- LINE CHART -->
               <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Line Chart</h3>
+                  <h3 class="box-title">FLetes</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -63,7 +63,7 @@
               <!-- BAR CHART -->
               <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Bar Chart</h3>
+                  <h3 class="box-title">Despachos</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
