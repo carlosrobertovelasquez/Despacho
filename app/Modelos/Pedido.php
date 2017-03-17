@@ -10,8 +10,7 @@ class Pedido extends Model
     protected  $connection= 'softland';
     protected  $table='DRO_UNI.PEDIDO';
     protected $id='PEDIDO';
-
-              public $timestamps = false;
+    public $timestamps = false;
 
        
 

@@ -166,11 +166,14 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
          Collective\Html\HtmlServiceProvider::class,
          Laracasts\Flash\FlashServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
         /*
          * Package Service Providers...
+
          */
+         Jenssegers\Date\DateServiceProvider::class,
 
         //
 
@@ -198,6 +201,7 @@ return [
 
     'aliases' => [
 
+        
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class, 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -234,7 +238,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash'=> Laracasts\Flash\Flash::class,
-
+        'PDF'=>Barryvdh\DomPDF\Facade::class,
+        'Date' => Jenssegers\Date\Date::class,
+        'Carbon' => Carbon\Carbon::class,
     ],
 
 ];

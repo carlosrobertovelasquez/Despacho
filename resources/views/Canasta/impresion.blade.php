@@ -1,9 +1,12 @@
-<!doctype html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    
     <title>Ticket</title>
     <style type="text/css">
+        @page{
+            size:a4 portrait;
+             margin: 32px 36px;
+              }
         table {
             margin: 0 auto;
             padding: 15px;
@@ -18,23 +21,22 @@
         border-top-width: 0px;
         border-top-width: 0px;
     }
-
+   
     </style>
 
 </head>
 <body>
 @foreach($EncabezadoTicket as $EncabezadoTicket)
-<h4  style="margin: 0px 0px 0px 0px"  align="center" >   DROGUERIA UNIVERSAL S.A. de C.V.  </h4>
-<p style="margin:1% 0;" class="panel-title" align="center" > Numero de Ticket : {{$EncabezadoTicket->ticket}}  </p>
-<p style="margin:1% 0;" class="panel-title" align="center" > Preparador :{{$EncabezadoTicket->preparador}}    Estado :{{$EncabezadoTicket->estado}} </p>
-<p style="margin:-2.5% 0;"  align="left">Cliente:({{$EncabezadoTicket->cliente}})-{{$EncabezadoTicket->nombre}}  </p>
-<p  style="margin:1% 0;" align="left">Vendedor :{{$EncabezadoTicket->nombre_vendedor}}</p>
-<p  style="margin:1% 0;" align="left">Direcion :{{$EncabezadoTicket->direccion}}</p>
-<p  style="margin:2% 0;" align="left">Notas : {{$EncabezadoTicket->nota}}</p>
+<h1   align="center" >   DROGUERIA UNIVERSAL S.A. de C.V.  </h1>
+<p  align="center" > Numero de Ticket : {{$EncabezadoTicket->ticket}}  </p>
+<p  align="center" > Preparador :{{$EncabezadoTicket->preparador}}    Estado :{{$EncabezadoTicket->estado}} </p>
+<p   align="left">Cliente:({{$EncabezadoTicket->cliente}})-{{$EncabezadoTicket->nombre}}  </p>
+<p  align="left">Vendedor :{{$EncabezadoTicket->nombre_vendedor}}</p>
+<p  align="left">Direcion :{{$EncabezadoTicket->direccion}}</p>
+<p align="left">Notas : {{$EncabezadoTicket->nota}}</p>
 @endforeach
-<div class="panel-body">
-<table style="margin: 1%" >
-
+<div >
+<table  >
     <thead>
     <tr>
     <th>Pedido</th>
@@ -57,9 +59,8 @@
         </tr>
     @endforeach
     </tbody>
-
 </table>
-<table  style="font-size:10px ; border:0px  0px 0px 0px ;margin: 0px 0px 0px 0px ; padding: 12px 12px 12px 12px;">
+<table  >
     <tr>
         <td   align="left">Preparador : </td>
         <td  align="left">Revisa: </td>
@@ -67,18 +68,9 @@
     </tr>
 
 </table>
-
-
-
-
 </div>
-
-
-
-
 </body>
 <footer>
-
 </footer>
 </html>
 

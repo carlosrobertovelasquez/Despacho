@@ -15,22 +15,29 @@
             <div class="col-md-11 ">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-     <form class="navbar-form" role="search">            
+     <form class="navbar-form" role="search" action="{{route('pedidos.index')}}" >            
                     <div>
                      <a href="{{ route('Canasta.show') }}" class="btn btn-info">
                      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
-                      Ver Canasta => {{count(\Session::get('cart'))}} </a>
-
-                                     
+                     Ver Canasta => {{count(\Session::get('cart'))}} </a>
 
 
-                
+
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nombre Cliente" name="q">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    
+                     
+
+
                     </div>
+
+                
+
                 </div>
+                 
+
             </form>
 
 
@@ -65,7 +72,7 @@
                                 <tr>
 
                                     <td>{{ $pedi->pedidos }}</td>
-                                    <td>{{ $pedi->fecha_hora_pedido }}</td>
+                                    <td>{{Carbon\Carbon::parse($pedi->fecha_hora_pedido)->format('d-m-Y h:m:s') }}</td>
                                     <td>{{ $pedi->Cliente }}</td>
                                     <td>{{ $pedi->Nombre_Cliente }}</td>
                                     <td>{{ $pedi->Direccion_Cliente }}</td>
